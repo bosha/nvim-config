@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # ----------------------------------------------------
-# This is simple script to install VIM configuration.
+# Automatic installation of the neovim configuration
 # ----------------------------------------------------
 # AUTHOR: bosha
-#   SITE: http://the-bosha.ru
+#   SITE: http://github.com/bosha/nvim-config
 # ----------------------------------------------------
+
+echo "Running the installation script for bosha/nvim-config neovim configuration"
 
 promptyn () {
     if [ -z "$1" ]; then
@@ -22,11 +24,13 @@ promptyn () {
     done
 }
 
+echo "Verifying that git is installed"
 if ! which git &> /dev/null ; then
     echo "GIT required, but not installed. Install it first."
     exit 1
 fi
 
+echo "Verifying that configuration directory does not exists"
 if [[ -d "$HOME"/.config/nvim ]]; then
     if promptyn "Directory "$HOME"/.config/nvim exists. Are you sure you want to continue?"; then
         if mv "$HOME"/.config/nvim "$HOME"/.config/nvim_old/ &> /dev/null ; then
@@ -40,18 +44,14 @@ if [[ -d "$HOME"/.config/nvim ]]; then
     fi
 fi
 
-if [[ -d "/tmp/nvim-config" ]]; then
-    rm -rf /tmp/nvim-config &> /dev/null
-fi
+echo "Creating directories"
+mkdir -p ~/.config/nvim &> /dev/null
 
-cd /tmp
+# cd /tmp
+echo "Chaning directory to ~/.config/"
+cd "$HOME"/.config/
+
 echo "Cloning Neovim configuration.."
-git clone https://raw.githubusercontent.com/bosha/nvim-config/refs/heads/master/install.sh &> /dev/null
-
-echo "Applying configuration"
-mv nvim-config "$HOME"./config/nvim &> /dev/null
-
-echo "Cleaning up.."
-rm -rf /tmp/nvim-config &> /dev/null
+git clone git@github.com:bosha/nvim-config.git nvim &> /dev/null
 
 echo "Neovim configuration successfully applied. Remember to update terminal font to the patched nerdfont version."
