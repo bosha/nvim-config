@@ -64,3 +64,6 @@ opt.undodir= vim.fn.stdpath("data") .. "/undo//"
 opt.swapfile = true
 opt.backup = true
 opt.undofile = true
+
+-- backspace configuration
+opt.backspace = "indent,eol,start"
