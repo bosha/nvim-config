@@ -46,7 +46,7 @@ fi
 
 cd /tmp
 echo "Cloning Neovim configuration.."
-git clone https://github.com/bosha/nvim-config.git &> /dev/null
+git clone https://raw.githubusercontent.com/bosha/nvim-config/refs/heads/master/install.sh &> /dev/null
 
 echo "Applying configuration"
 mv nvim-config "$HOME"./config/nvim &> /dev/null
@@ -54,4 +54,4 @@ mv nvim-config "$HOME"./config/nvim &> /dev/null
 echo "Cleaning up.."
 rm -rf /tmp/nvim-config &> /dev/null
 
-echo "Neovim configuration successfully applied. Remember to update terminal font to the patched nerdfont version"
+echo "Neovim configuration successfully applied. Remember to update terminal font to the patched nerdfont version."
