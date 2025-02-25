@@ -10,6 +10,7 @@ return {
 	},
 	{
 		"dhruvasagar/vim-table-mode",
+		-- does not work properly, disabling until I fix it
 		enabled = false,
 		config = function()
 			vim.g.table_mode_syntax = 0

@@ -20,6 +20,7 @@ local function tm(key, command)
 	map("t", key, command, { noremap = true })
 end
 
+-- Space as <leader>
 vim.g.mapleader = " "
 
 nm(";", ":")
@@ -27,18 +28,7 @@ nm(";", ":")
 -- Double esc to stop highlighting search results
 nm("<Esc><Esc>", "<CMD>nohlsearch<CR>")
 
--- NeoTree
--- nm("<leader>e", "<CMD>Neotree toggle<CR>")
--- nm("<leader>o", "<CMD>Neotree focus<CR>")
--- nm("<leader>e", "<CMD>lua MiniFiles.open()<cr>")
-nm("<leader>e", "<CMD>Oil<CR>")
-nm("-", "<cmd>Oil<cr>")
-
 -- Buffer
--- nm("<TAB>", "<CMD>bnext<CR>")
--- nm("<S-TAB>", "<CMD>bprevious<CR>")
--- nm("<C-n>", "<CMD>bnext<CR>")
--- nm("<C-p>", "<CMD>bprevious<CR>")
 nm("<C-n>", "<CMD>BufferNext<CR>")
 nm("<C-p>", "<CMD>BufferPrevious<CR>")
 -- <leader>b to list buffers and easily switch between them
@@ -56,28 +46,9 @@ nm("<C-j>", "<C-w>j")
 -- nm("<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
 -- nm("<leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>")
 
--- Centered search results
--- nm("n", "nzz")
--- nm("N", "Nzz")
--- nm("*", "*zz")
--- nm("#", "#zz")
--- nm("g*", "g*zz")
--- nm("g#", "g#zz")
-
 -- Don't skip wrapped lines
 nm("j", "gj")
 nm("k", "gk")
-
--- oo and OO to insert line below/above without going into insert mode
--- temporary commented out due to introducing big lag when I just o/O
--- nm("oo", "o<Esc>k")
--- nm("OO", "O<Esc>j")
-
--- Use ctrl-c / ctrl-v to copy/paste using global clipboard
--- vm('<C-C>', '<esc> "+yi')
-im("<D-V>", '<esc>"+gPi')
-vm("<D-C>", '<esc> "+yi')
--- im('<C-V>', '<cmd>set nowrap<cr><esc>"+gPi<esc><cmd>set wrap<cr>i')
 
 nm("<M-z>", "<CMD>set wrap!<CR>")
 

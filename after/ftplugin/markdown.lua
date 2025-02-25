@@ -1,4 +1,4 @@
-vim.opt.number = true         -- enable line numbering
+vim.opt.number = true -- enable line numbering
 vim.opt.relativenumber = true -- enable relivate line numbers
 
 vim.opt.spell = true
@@ -212,7 +212,7 @@ vim.keymap.set({ "i", "n", "v" }, "<M-j>", nvim_toggle_heading_level(3))
 -- Configuration
 local config = {
 	show_hashtags = false, -- Default behavior: hide hashtags
-	skip_h1 = true,       -- Set to false to include H1 headings
+	skip_h1 = true, -- Set to false to include H1 headings
 }
 
 -- Track the floating window and buffer
@@ -595,14 +595,14 @@ vim.api.nvim_set_keymap("v", "<A-c>", ":lua toggle_inline_code_visual()<CR>", { 
 local function get_nested_headings()
 	local line_num = vim.fn.line(".") -- Get current line number
 	local headings = {}
-	local current_level = nil        -- Track the level of the current heading
+	local current_level = nil -- Track the level of the current heading
 
 	-- Search upwards for headings above the cursor
 	for i = line_num, 1, -1 do
 		local line = vim.fn.getline(i)
 		local level = line:match("^(#+) .+") -- Match the heading level (e.g., #, ##)
 		if level then
-			level = #level                   -- Convert to number (e.g., # -> 1, ## -> 2)
+			level = #level -- Convert to number (e.g., # -> 1, ## -> 2)
 
 			-- If this is the first heading found, set it as the current heading
 			if not current_level then
@@ -643,7 +643,7 @@ local function truncate_headings(headings, max_width)
 	local current_heading = headings[#headings]
 	local remaining_width = max_width - #current_heading - 3 -- Account for " > " separator
 	if remaining_width <= 0 then
-		return current_heading                                -- Only show the current heading if no space is left
+		return current_heading -- Only show the current heading if no space is left
 	end
 
 	-- Build the truncated string
@@ -694,11 +694,11 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "WinResized" }, {
 -- ----------------------------------------------------------------------------
 -- Function to find the next heading of a specific level
 local function find_next_heading(level)
-	local current_line = vim.fn.line(".")               -- Get current line number
+	local current_line = vim.fn.line(".") -- Get current line number
 	local pattern = "^" .. string.rep("#", level) .. " " -- Pattern for the heading (e.g., "## " for H2)
 
 	-- Search for the next heading of the specified level
-	local next_line = vim.fn.search(pattern, "W")    -- "W" means wrap around the end of the file
+	local next_line = vim.fn.search(pattern, "W") -- "W" means wrap around the end of the file
 	if next_line > 0 then
 		vim.api.nvim_win_set_cursor(0, { next_line, 0 }) -- Move cursor to the heading
 	else
@@ -709,7 +709,7 @@ end
 -- Function to check if a heading of a specific level exists
 local function heading_exists(level)
 	local pattern = "^" .. string.rep("#", level) .. " " -- Pattern for the heading
-	return vim.fn.search(pattern, "nw") > 0             -- "nw" means no move and wrap
+	return vim.fn.search(pattern, "nw") > 0 -- "nw" means no move and wrap
 end
 
 -- Set up keybindings for <Leader>1 to <Leader>6

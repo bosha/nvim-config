@@ -7,6 +7,9 @@ return {
 		local oil = require("oil")
 
 		oil.setup({
+			-- cannot use it as a netrw replacement because it messes up the :pwd
+			-- and does not allow me to change the directory automatically
+			-- when nvim opens.
 			default_file_explorer = false,
 			delete_to_trash = true,
 			view_options = {

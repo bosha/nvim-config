@@ -20,8 +20,8 @@ return {
 		vim.opt.langmap = vim.fn.join({
 			-- | `to` should be first     | `from` should be second
 			escape(ru_shift)
-			.. ";"
-			.. escape(en_shift),
+				.. ";"
+				.. escape(en_shift),
 			escape(ru) .. ";" .. escape(en),
 		}, ",")
 	end,

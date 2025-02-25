@@ -6,8 +6,6 @@ local opt = vim.opt
 -- set my spelling languages for spellcheck
 opt.spelllang = { "ru", "en" }
 
-vim.g.mapleader = " "
-
 -- [[ general configuration (aka I can't come up with category for it) ]]
 opt.ignorecase = true
 opt.smartcase = true
