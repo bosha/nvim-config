@@ -41,3 +41,17 @@ font-d2coding-nerd-font                     font-inconsolata-lgc-nerd-font      
 font-daddy-time-mono-nerd-font              font-inconsolata-nerd-font                  font-open-dyslexic-nerd-font
 font-dejavu-sans-mono-nerd-font             font-intone-mono-nerd-font                  font-overpass-nerd-font
 ```
+
+### Additional tools to install
+
+In order to make some things work properly you need to install couple additional tools:
+
+- **rg** - for telescope.
+- **prettier** and **prettierd** for the markdown files formatting.
+- **stylua** for the lua formatting
+
+All can be installed with brew:
+
+```bash
+brew install rg prettier prettierd stylua
+```
