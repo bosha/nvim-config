@@ -152,6 +152,9 @@ return {
 					}
 				end,
 			})
+			lspconfig.sourcekit.setup({
+				capabilities = capabilities,
+			})
 		end,
 	},
 }
