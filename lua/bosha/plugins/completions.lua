@@ -3,12 +3,14 @@ return {
 	{
 		"hrsh7th/cmp-path",
 	},
-
-	-- {
-	-- 	"hrsh7th/cmp-buffer",
-	-- },
+	{
+		"hrsh7th/cmp-buffer",
+	},
 	{
 		"hrsh7th/cmp-nvim-lsp",
+	},
+	{
+		"hrsh7th/cmp-cmdline",
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -24,9 +26,8 @@ return {
 
 			cmp.setup({
 				snippet = {
-					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+						require("luasnip").lsp_expand(args.body)
 					end,
 				},
 				window = {
@@ -41,7 +42,7 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-					-- { name = "nvim_lsp" },
+					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
 					{ name = "buffer" },
