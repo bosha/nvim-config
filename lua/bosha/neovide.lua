@@ -2,6 +2,11 @@ vim.opt.linespace = 8 -- a little bit more space between lines
 vim.g.neovide_remember_window_size = true -- remember previous window size on quit
 vim.g.neovide_input_macos_option_key_is_meta = 'both' -- use opt key in keybinds
 
+local home_bin = vim.fn.expand("~/bin")
+if vim.fn.isdirectory(home_bin) == 1 then
+	vim.env.PATH = vim.env.PATH .. ":" .. home_bin
+end
+
 -- VimEnter does not work by some reason.
 -- found solution here - https://github.com/neovide/neovide/issues/1477
 vim.api.nvim_create_autocmd("FocusGained", {

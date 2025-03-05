@@ -1,10 +1,10 @@
-require("bosha.preferences")
-require("bosha.keys")
-require("bosha.auto")
-
 if vim.g.neovide then
   require('bosha.neovide')
 end
+
+require("bosha.preferences")
+require("bosha.keys")
+require("bosha.auto")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
