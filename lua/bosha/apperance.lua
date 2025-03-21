@@ -24,7 +24,9 @@ local function set_background_based_on_appearance()
 	end
 end
 
-vim.api.nvim_create_autocmd({ "VimEnter", "FocusGained" }, {
-	callback = set_background_based_on_appearance,
-})
-
+-- Check if we're running on macOS
+if vim.fn.has("mac") == 1 then
+	vim.api.nvim_create_autocmd({ "VimEnter", "FocusGained" }, {
+		callback = set_background_based_on_appearance,
+	})
+end
