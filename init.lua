@@ -1,4 +1,3 @@
-require("bosha.apperance")
 if vim.g.neovide then
 	require("bosha.neovide")
 end
